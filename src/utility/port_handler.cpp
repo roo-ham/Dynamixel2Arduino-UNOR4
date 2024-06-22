@@ -114,7 +114,7 @@ size_t SerialPortHandler::write(uint8_t *buf, size_t len)
 
   if(dir_pin_ != -1){
     port_.flush();
-#if defined(ARDUINO_ARCH_MBED)
+#if defined(ARDUINO_ARCH_MBED) || defined(ARDUINO_UNOR4_MINIMA) || defined(ARDUINO_UNOR4_WIFI)
   delayMicroseconds(mbedTXdelayus);
 #endif
     digitalWrite(dir_pin_, LOW);
